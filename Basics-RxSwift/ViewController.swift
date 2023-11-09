@@ -9,11 +9,13 @@ import UIKit
 import RxSwift
 import RxCocoa
 
+// The benfit of RxSwift is that everytime the data changes, it will automatiically reload the data automatically so that we dont have to fetch again, and reload data.
+
 class ViewController: UIViewController {
     
     private let tableView: UITableView = {
         let table = UITableView()
-        table.register(UITableView.self, forCellReuseIdentifier: "cell")
+        table.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         return table
     }()
     
@@ -55,10 +57,7 @@ class ViewController: UIViewController {
             print(product.title)
         }.disposed(by: bag)
         
-        
-        
-        
-        
+    
         // fetch items
         viewModel.fetchItems()
     }
